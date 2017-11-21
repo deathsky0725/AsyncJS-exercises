@@ -1,9 +1,16 @@
 const fs = require('fs');
 
-const readFromFile = (fileName)=>{
+const readFromFile = (fileName,cb)=>{
   // WRITE CODE HERE
-};
+    //  fs.readFileSync(fileName,'utf8');
+    fs.readFile(fileName,'utf8',(err,data)=>{
+        console.log(data);
+        cb();
+    });
 
+};
 console.log('START');
-const data = readFromFile('sample.txt');
-console.log('END')
+readFromFile('sample.txt',()=>{
+    console.log('end');
+});
+
